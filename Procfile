@@ -1,2 +1,2 @@
-web: sh setup.sh && streamlit run segart.py
+web: sh setup.sh && streamlit run artapp.py
 
