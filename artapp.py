@@ -9,7 +9,7 @@ import streamlit as st
 
 st.sidebar.header("Acerca de")
 st.sidebar.markdown("Esta Aplicación Web fue desarrollada por [Santiago Greloni](https://www.linkedin.com/in/santiago-greloni-4892a9196/).")
-st.sidebar.markdown("En [este repositorio](https://github.com/SGreloni/) se encuentra el \
+st.sidebar.markdown("En [este repositorio](https://github.com/SGreloni/segart/) se encuentra el \
                     código del proyecto en un Jupyter Notebook con algunos detalles adicionales.\
                     Ahí mismo también se puede encontrar el código con el que se realizó esta misma página")
 
@@ -24,7 +24,7 @@ st.markdown("A partir del algoritmo *KMeans* se agrupan los pixeles en relación
 st.markdown("### ¿Qué es *KMeans*?")
 st.markdown("*KMeans* es un algoritmo de aprendizaje no supervisado que permite encontrar una cantidad (K) de *clusters* en los que se agrupan los datos.")
 
-cluster_img = PIL.Image.open("media_expl\\clusters.png")
+cluster_img = PIL.Image.open("media_expl\clusters.png")
 st.image(cluster_img, width = 350, caption = "Ejemplo de clusters en datos bidimensionales")
 
 st.markdown("Este algoritmo funciona de la siguiente forma:")
@@ -34,7 +34,7 @@ st.markdown("3. Se actualiza la posición de los centroides como el promedio de 
 st.markdown("4. Se repiten el paso 2 y 3 hasta que el modelo converge (no cambia la posición de los centroides)")
 
 st.markdown("Este proceso se puede visualizar en el siguiente video:")
-cluster_img = PIL.Image.open("media_expl\\kmeans.gif")
+cluster_img = PIL.Image.open("media_expl\kmeans.gif")
 st.markdown("![Kmeans, paso por paso.](https://uploads.toptal.io/blog/image/92528/toptal-blog-image-1463672901961-c86610183bb2ba67f979c421f6748893.gif)")
 st.markdown("Fuente: [Topal](https://www.toptal.com/machine-learning/clustering-algorithms)")
 
