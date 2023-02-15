@@ -1,5 +1,6 @@
-matplotlib==3.2.2
-numpy==1.17.0
+numpy==1.19.2
+matplotlib==3.3.4
 streamlit==0.73.1
-Pillow==8.1.0
-scikit_learn==0.24.0
+Pillow==9.4.0
+scikit_learn==1.2.1
+
