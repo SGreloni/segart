@@ -84,11 +84,11 @@ col1, col2 = st.beta_columns(2)
 
 original = imagen
 col1.header("Original")
-col1.image(original, use_column_width=True, clamp = True)
+col1.image(original, use_column_width=True, clamp=True)
 
 segmentada = img_segmentada.astype('uint8')
 col2.header("Segmentada")
-col2.image(segmentada, use_column_width=True, clamp = True)
+col2.image(img_segmentada, use_column_width=True, clamp=True)
 
 st.markdown("### Cambio de estilo")
 
@@ -100,7 +100,8 @@ st.markdown("Como se puede ver, la segmentación da la oportunidad de editar las
 
 expansores = {}
 selecc_color = {}
-colores = kmeans_dup.cluster_centers_.astype(int)
+colores = kmeans_dup.cluster_centers_*256
+colores = colores.astype(int)
 
 def rgb_a_hex(lista_rgb):
     r, g, b = lista_rgb
@@ -109,7 +110,7 @@ def rgb_a_hex(lista_rgb):
 for cluster in range(k):
     expansores[cluster] = st.beta_expander("Cambiar color {}".format(cluster +1))
     color_hex = rgb_a_hex(list(colores[cluster]))
-    selecc_color[cluster] = expansores[cluster].color_picker('Seleccione un color', color_hex, key = "selecc_color {}".format(cluster))
+    selecc_color[cluster] = expansores[cluster].color_picker('Seleccione un color', value=color_hex, key="selecc_color {}".format(cluster))
     rgb = PIL.ImageColor.getcolor(selecc_color[cluster], "RGB")
     expansores[cluster].write("RGB: {}".format(rgb))
     colores[cluster] = rgb
@@ -123,10 +124,12 @@ col1, col2 = st.beta_columns(2)
 
 segmentada = img_segmentada.astype('uint8')
 col1.header("Segmentada")
-col1.image(segmentada, use_column_width=True, clamp = True)
+col1.image(img_segmentada, use_column_width=True, clamp = True)
 
 cambiada = img_cambiada.astype('uint8')
 col2.header("Cambiada")
 col2.image(cambiada, use_column_width=True, clamp = True)
+
+
 
 
