@@ -1,9 +1,8 @@
 from matplotlib.image import imread
-import os
 import PIL
-import matplotlib.pyplot as plt
+import os
+os.environ["OMP_NUM_THREADS"] = '1' # Para evitar Warning por Memory Leakage en KMeans
 from sklearn.cluster import MiniBatchKMeans
-import numpy as np
 import copy
 import streamlit as st
 
